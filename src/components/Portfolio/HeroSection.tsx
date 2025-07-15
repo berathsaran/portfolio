@@ -8,8 +8,17 @@ export function HeroSection() {
   }
 
   return (
-    <section className="min-h-screen flex items-center justify-center px-6 py-20 bg-gradient-to-br from-background via-secondary/30 to-primary/10">
-      <div className="max-w-4xl mx-auto text-center space-y-8">
+    <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
+      {/* Animated background */}
+      <div className="absolute inset-0 bg-gradient-hero">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.1)_0%,_transparent_50%)] opacity-50"></div>
+      </div>
+      
+      {/* Floating elements */}
+      <div className="absolute top-20 left-10 w-32 h-32 bg-primary/10 rounded-full blur-xl animate-float"></div>
+      <div className="absolute bottom-20 right-10 w-40 h-40 bg-primary-glow/10 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
+      
+      <div className="relative max-w-5xl mx-auto text-center space-y-12 z-10">
         <div className="space-y-4 animate-fade-in">
           <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
             <span className="bg-gradient-primary bg-clip-text text-transparent">
