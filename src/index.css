@@ -74,7 +74,8 @@ All colors MUST be HSL.
   .dark {
     --background: 222 84% 5%;
     --foreground: 210 40% 98%;
-    --primary-glow: 217 91% 85%;
+    --primary: 198 100% 35%;  /* Lighter teal for dark mode */
+    --primary-glow: 198 100% 45%;  /* Even lighter for glow effect */
 
     --card: 222 84% 5%;
     --card-foreground: 210 40% 98%;
@@ -82,7 +83,6 @@ All colors MUST be HSL.
     --popover: 222 84% 5%;
     --popover-foreground: 210 40% 98%;
 
-    --primary: 217 91% 70%;
     --primary-foreground: 222 84% 5%;
 
     --secondary: 217 33% 18%;

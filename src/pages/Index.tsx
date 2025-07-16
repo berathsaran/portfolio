@@ -8,6 +8,7 @@ import { CertificationsSection } from "@/components/Portfolio/CertificationsSect
 import { EducationSection } from "@/components/Portfolio/EducationSection"
 import { ContactSection } from "@/components/Portfolio/ContactSection"
 import { Footer } from "@/components/Portfolio/Footer"
+import { FloatingParticles } from "@/components/FloatingParticles"
 
 const Index = () => {
   useEffect(() => {
@@ -19,18 +20,24 @@ const Index = () => {
   }, [])
 
   return (
-    <div className="min-h-screen bg-background">
-      <Header />
-      <main>
-        <HeroSection />
-        <AboutSection />
-        <SkillsSection />
-        <ProjectsSection />
-        <CertificationsSection />
-        <EducationSection />
-        <ContactSection />
-      </main>
-      <Footer />
+    <div className="min-h-screen bg-background relative">
+      {/* Floating Particles Background */}
+      <FloatingParticles />
+      
+      {/* Main Content */}
+      <div className="relative z-10">
+        <Header />
+        <main>
+          <HeroSection />
+          <AboutSection />
+          <SkillsSection />
+          <ProjectsSection />
+          <CertificationsSection />
+          <EducationSection />
+          <ContactSection />
+        </main>
+        <Footer />
+      </div>
     </div>
   );
 };
