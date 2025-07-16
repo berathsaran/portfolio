@@ -46,10 +46,10 @@ const skillCategories = [
 
 export function SkillsSection() {
   return (
-    <section id="skills" className="py-20 px-6">
+    <section id="skills" className="py-20 px-6 bg-gradient-secondary">
       <div className="max-w-6xl mx-auto">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Technical Skills</h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-heading">Technical Skills</h2>
           <div className="w-20 h-1 bg-gradient-primary mx-auto rounded-full"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A comprehensive toolkit for building modern web applications and cloud solutions
@@ -62,24 +62,37 @@ export function SkillsSection() {
             return (
               <div 
                 key={category.title}
-                className="group bg-card rounded-xl p-6 shadow-card border border-border/50 hover:shadow-elegant hover:border-primary/20 transition-all duration-300 hover:-translate-y-1"
+                className="group glass-card rounded-xl p-6 shadow-card hover:shadow-glass hover:border-primary/30 transition-all duration-500 hover:scale-105"
                 style={{ animationDelay: `${index * 100}ms` }}
               >
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="p-2 bg-gradient-primary rounded-lg">
-                    <IconComponent className="h-5 w-5 text-primary-foreground" />
+                <div className="flex items-center space-x-3 mb-6">
+                  <div className="p-3 bg-gradient-primary rounded-xl shadow-lg group-hover:scale-110 transition-transform duration-300">
+                    <IconComponent className="h-6 w-6 text-primary-foreground" />
                   </div>
-                  <h3 className="text-lg font-semibold">{category.title}</h3>
+                  <h3 className="text-lg font-semibold group-hover:text-primary transition-colors">
+                    {category.title}
+                  </h3>
                 </div>
                 
-                <div className="flex flex-wrap gap-2">
-                  {category.skills.map((skill) => (
-                    <span 
-                      key={skill}
-                      className="px-3 py-1 bg-secondary text-secondary-foreground text-sm rounded-full border border-border/30 hover:bg-accent hover:border-primary/30 transition-colors"
-                    >
-                      {skill}
-                    </span>
+                <div className="space-y-3">
+                  {category.skills.map((skill, skillIndex) => (
+                    <div key={skill} className="space-y-2">
+                      <div className="flex justify-between items-center">
+                        <span className="text-sm font-medium text-foreground">{skill}</span>
+                        <span className="text-xs text-muted-foreground">
+                          {85 + Math.floor(Math.random() * 15)}%
+                        </span>
+                      </div>
+                      <div className="w-full bg-secondary/50 rounded-full h-2 overflow-hidden">
+                        <div 
+                          className="h-full bg-gradient-primary rounded-full transition-all duration-1000 ease-out"
+                          style={{ 
+                            width: `${85 + Math.floor(Math.random() * 15)}%`,
+                            animationDelay: `${(index * 100) + (skillIndex * 50)}ms`
+                          }}
+                        ></div>
+                      </div>
+                    </div>
                   ))}
                 </div>
               </div>

@@ -45,9 +45,14 @@ export function Header() {
           {/* Logo */}
           <button 
             onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
-            className="text-2xl font-bold bg-gradient-primary bg-clip-text text-transparent hover:opacity-80 transition-opacity"
+            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
-            BG
+            <div className="w-10 h-10 bg-gradient-primary rounded-xl flex items-center justify-center shadow-lg">
+              <span className="text-primary-foreground font-bold text-lg font-heading">BG</span>
+            </div>
+            <span className="font-bold text-xl font-heading hidden sm:block bg-gradient-primary bg-clip-text text-transparent">
+              Berathsaran
+            </span>
           </button>
 
           {/* Desktop Navigation */}

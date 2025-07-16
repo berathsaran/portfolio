@@ -8,7 +8,7 @@ export function HeroSection() {
   }
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
+    <section id="home" className="relative min-h-screen flex items-center justify-center px-6 py-20 overflow-hidden">
       {/* Animated background */}
       <div className="absolute inset-0 bg-gradient-hero">
         <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,_rgba(59,130,246,0.1)_0%,_transparent_50%)] opacity-50"></div>
@@ -19,8 +19,19 @@ export function HeroSection() {
       <div className="absolute bottom-20 right-10 w-40 h-40 bg-primary-glow/10 rounded-full blur-xl animate-float" style={{ animationDelay: '2s' }}></div>
       
       <div className="relative max-w-5xl mx-auto text-center space-y-12 z-10">
-        <div className="space-y-4 animate-fade-in">
-          <h1 className="text-5xl md:text-7xl font-bold tracking-tight">
+        {/* Profile Avatar */}
+        <div className="w-32 h-32 mx-auto mb-8 relative animate-fade-in">
+          <div className="w-full h-full rounded-full bg-gradient-primary p-1 animate-glow">
+            <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
+              <span className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent font-heading">
+                BG
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <div className="space-y-6 animate-fade-in">
+          <h1 className="text-5xl md:text-7xl font-bold tracking-tight font-heading">
             <span className="bg-gradient-primary bg-clip-text text-transparent">
               Berathsaran G P
             </span>
@@ -29,20 +40,25 @@ export function HeroSection() {
             Front-End Developer | Cloud & Data Enthusiast
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Building responsive web apps, serverless architectures & data-driven dashboards
+            Building responsive apps, serverless architectures, and AI dashboards
           </p>
         </div>
 
-        <div className="flex flex-wrap items-center justify-center gap-4 pt-8">
+        <div className="flex flex-wrap items-center justify-center gap-6 pt-8">
           <Button 
             asChild
             size="lg" 
-            className="bg-gradient-primary hover:opacity-90 transition-opacity shadow-elegant"
+            className="bg-gradient-primary hover:opacity-90 transition-all duration-300 shadow-elegant hover:shadow-glass hover:scale-105 px-8 py-3 text-lg font-semibold"
           >
-            <a href="#contact">Get In Touch</a>
+            <a href="#contact">Contact Me</a>
           </Button>
-          <Button variant="outline" size="lg" asChild>
-            <a href="#projects" className="hover:bg-accent">View Projects</a>
+          <Button 
+            variant="outline" 
+            size="lg" 
+            asChild
+            className="border-primary text-primary hover:bg-primary hover:text-primary-foreground transition-all duration-300 px-8 py-3 text-lg font-semibold hover:scale-105"
+          >
+            <a href="#projects">View Projects</a>
           </Button>
         </div>
 

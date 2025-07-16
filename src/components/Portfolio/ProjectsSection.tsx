@@ -43,10 +43,10 @@ const projects = [
 
 export function ProjectsSection() {
   return (
-    <section id="projects" className="py-20 px-6 bg-gradient-secondary">
+    <section id="projects" className="py-20 px-6">
       <div className="max-w-6xl mx-auto">
         <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-4xl font-bold tracking-tight">Featured Projects</h2>
+          <h2 className="text-3xl md:text-4xl font-bold tracking-tight font-heading">Featured Projects</h2>
           <div className="w-20 h-1 bg-gradient-primary mx-auto rounded-full"></div>
           <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             A showcase of my recent work in web development, cloud architecture, and data science
@@ -59,16 +59,24 @@ export function ProjectsSection() {
             return (
               <Card 
                 key={project.title}
-                className="group hover:shadow-elegant hover:border-primary/20 transition-all duration-300 hover:-translate-y-1 border-border/50"
+                className="group hover:shadow-glass hover:border-primary/30 transition-all duration-500 hover:scale-105 border-border/50 overflow-hidden glass-card"
                 style={{ animationDelay: `${index * 150}ms` }}
               >
-                <CardHeader className="space-y-4">
-                  <div className="flex items-center space-x-3">
-                    <div className="p-2 bg-gradient-primary rounded-lg">
-                      <IconComponent className={`h-6 w-6 text-primary-foreground`} />
-                    </div>
-                    <CardTitle className="text-xl">{project.title}</CardTitle>
+                {/* Project Image Placeholder */}
+                <div className="h-48 bg-gradient-primary/10 relative overflow-hidden">
+                  <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-primary-glow/20 opacity-80"></div>
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <IconComponent className="h-16 w-16 text-primary/60" />
                   </div>
+                  <div className="absolute top-4 right-4">
+                    <div className="w-3 h-3 bg-primary rounded-full animate-pulse"></div>
+                  </div>
+                </div>
+
+                <CardHeader className="space-y-4">
+                  <CardTitle className="text-xl font-semibold group-hover:text-primary transition-colors">
+                    {project.title}
+                  </CardTitle>
                 </CardHeader>
                 
                 <CardContent className="space-y-4">
@@ -80,7 +88,7 @@ export function ProjectsSection() {
                     {project.techStack.map((tech) => (
                       <span 
                         key={tech}
-                        className="px-2 py-1 bg-accent text-accent-foreground text-xs rounded-md border border-border/30"
+                        className="px-3 py-1 bg-primary/10 text-primary text-xs rounded-full border border-primary/20 hover:bg-primary/20 transition-colors"
                       >
                         {tech}
                       </span>
@@ -88,7 +96,12 @@ export function ProjectsSection() {
                   </div>
 
                   <div className="flex space-x-3 pt-4">
-                    <Button variant="outline" size="sm" asChild>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      asChild
+                      className="hover:bg-primary hover:text-primary-foreground transition-all duration-300"
+                    >
                       <a 
                         href={project.githubUrl} 
                         target="_blank" 
@@ -96,18 +109,22 @@ export function ProjectsSection() {
                         className="flex items-center space-x-2"
                       >
                         <Github className="h-4 w-4" />
-                        <span>Code</span>
+                        <span>View on GitHub</span>
                       </a>
                     </Button>
-                    <Button size="sm" asChild>
+                    <Button 
+                      size="sm" 
+                      asChild
+                      className="bg-gradient-primary hover:opacity-90 hover:scale-105 transition-all duration-300"
+                    >
                       <a 
                         href={project.liveUrl} 
                         target="_blank" 
                         rel="noopener noreferrer"
-                        className="flex items-center space-x-2 bg-gradient-primary hover:opacity-90"
+                        className="flex items-center space-x-2"
                       >
                         <ExternalLink className="h-4 w-4" />
-                        <span>Demo</span>
+                        <span>Live Demo</span>
                       </a>
                     </Button>
                   </div>
