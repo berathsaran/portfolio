@@ -9,6 +9,7 @@ const projects = [
     techStack: ["AWS Lambda", "S3", "CloudFront", "Route 53", "Terraform"],
     icon: Cloud,
     githubUrl: "https://github.com/berathsaran/serverless-hosting",
+    live: null, // or provide a live URL if available
     color: "text-blue-500"
   },
   {
@@ -16,7 +17,7 @@ const projects = [
     description: "Interactive business intelligence dashboard with AI-powered insights and predictive analytics. Built with Power BI and Python backend for real-time data processing.",
     techStack: ["Power BI", "Python", "SQL", "Machine Learning"],
     icon: BarChart3,
-    githubUrl: "https://github.com/berathsaran/ai-dashboard",
+    githubUrl: "https://github.com/berathsaran/AI-BI-ASSIST",
     color: "text-green-500"
   },
   {
@@ -32,7 +33,8 @@ const projects = [
     description: "Personal portfolio built with React and TypeScript, featuring a modern UI, responsive design, and smooth animations. Showcases projects, skills, and contact information.",
     techStack: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     icon: Monitor,
-    githubUrl: "https://github.com/berathsaran/portfolio-react",
+    githubUrl: "https://github.com/berathsaran/portfolio",
+    live: "https://www.berath.in",
     color: "text-blue-600"
   }
 ]
@@ -108,12 +110,23 @@ export function ProjectsSection() {
                         <span>View on GitHub</span>
                       </a>
                     </Button>
-                    <Button 
-                      size="sm" 
-                      asChild
-                      className="bg-gradient-primary hover:opacity-90 hover:scale-105 transition-all duration-300"
-                    >
-                    </Button>
+                    {project.live && (
+                      <Button 
+                        size="sm" 
+                        asChild
+                        className="bg-gradient-primary hover:opacity-90 hover:scale-105 transition-all duration-300"
+                      >
+                        <a 
+                          href={project.live}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="flex items-center space-x-2"
+                        >
+                          <ExternalLink className="h-4 w-4" />
+                          <span>Live</span>
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </CardContent>
               </Card>
