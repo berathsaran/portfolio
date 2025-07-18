@@ -22,10 +22,12 @@ export function HeroSection() {
         {/* Profile Avatar */}
         <div className="w-32 h-32 mx-auto mb-8 relative animate-fade-in">
           <div className="w-full h-full rounded-full bg-gradient-primary p-1 animate-glow">
-            <div className="w-full h-full rounded-full bg-background flex items-center justify-center">
-              <span className="text-4xl font-bold bg-gradient-primary bg-clip-text text-transparent font-heading">
-                BG
-              </span>
+            <div className="w-full h-full rounded-full bg-background flex items-center justify-center overflow-hidden">
+              <img
+                src="/profile.jpg" // Place your image in the public folder and use this path
+                alt="Berathsaran G P"
+                className="w-full h-full object-cover rounded-full"
+              />
             </div>
           </div>
         </div>
@@ -37,7 +39,7 @@ export function HeroSection() {
             </span>
           </h1>
           <h2 className="text-xl md:text-2xl text-muted-foreground font-medium">
-            Front-End Developer | Cloud & Data Enthusiast
+            Front-End Developer | Cloud deployment |ML Explorer
           </h2>
           <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
             Building responsive apps, serverless architectures, and AI dashboards
@@ -70,19 +72,19 @@ export function HeroSection() {
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild className="hover:scale-110 transition-transform">
-            <a href="https://linkedin.com/in/berathsaran" target="_blank" rel="noopener noreferrer">
+            <a href="https://linkedin.com/in/berathsaran-g-p" target="_blank" rel="noopener noreferrer">
               <Linkedin className="h-5 w-5" />
               <span className="sr-only">LinkedIn</span>
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild className="hover:scale-110 transition-transform">
-            <a href="mailto:berathsaran@example.com">
+            <a href="mailto:berathoffl@gmail.com">
               <Mail className="h-5 w-5" />
               <span className="sr-only">Email</span>
             </a>
           </Button>
           <Button variant="ghost" size="icon" asChild className="hover:scale-110 transition-transform">
-            <a href="tel:+1234567890">
+            <a href="tel:+916383368813">
               <Phone className="h-5 w-5" />
               <span className="sr-only">Phone</span>
             </a>

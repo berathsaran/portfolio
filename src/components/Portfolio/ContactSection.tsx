@@ -37,20 +37,20 @@ export function ContactSection() {
     {
       icon: Mail,
       label: "Email",
-      value: "berathsaran@example.com",
-      href: "mailto:berathsaran@example.com"
+      value: "berathoffl@gmail.com",
+      href: "mailto:berathoffl@gmail.com"
     },
     {
       icon: Phone,
       label: "Phone",
-      value: "+91 12345 67890",
-      href: "tel:+911234567890"
+      value: "6383368813",
+      href: "tel:+916383368813"
     },
     {
       icon: Linkedin,
       label: "LinkedIn",
-      value: "linkedin.com/in/berathsaran",
-      href: "https://linkedin.com/in/berathsaran"
+      value: "linkedin.com/in/berathsaran-g-p",
+      href: "https://linkedin.com/in/berathsaran-g-p"
     },
     {
       icon: Github,

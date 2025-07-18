@@ -37,11 +37,6 @@ const skillCategories = [
     icon: GitBranch,
     skills: ["Git", "Docker", "VS Code", "MongoDB", "REST APIs"]
   },
-  {
-    title: "Design & UI/UX",
-    icon: Palette,
-    skills: ["Responsive Design", "User Experience", "Component Libraries"]
-  }
 ]
 
 export function SkillsSection() {

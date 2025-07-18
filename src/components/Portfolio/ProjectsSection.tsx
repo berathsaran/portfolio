@@ -9,16 +9,14 @@ const projects = [
     techStack: ["AWS Lambda", "S3", "CloudFront", "Route 53", "Terraform"],
     icon: Cloud,
     githubUrl: "https://github.com/berathsaran/serverless-hosting",
-    liveUrl: "https://demo.example.com",
     color: "text-blue-500"
   },
   {
     title: "AI-Driven BI Dashboard",
     description: "Interactive business intelligence dashboard with AI-powered insights and predictive analytics. Built with Power BI and Python backend for real-time data processing.",
-    techStack: ["Power BI", "Python", "SQL", "Azure", "Machine Learning"],
+    techStack: ["Power BI", "Python", "SQL", "Machine Learning"],
     icon: BarChart3,
     githubUrl: "https://github.com/berathsaran/ai-dashboard",
-    liveUrl: "https://dashboard.example.com",
     color: "text-green-500"
   },
   {
@@ -27,16 +25,14 @@ const projects = [
     techStack: ["Python", "Scikit-learn", "Pandas", "Flask", "MongoDB"],
     icon: Music,
     githubUrl: "https://github.com/berathsaran/music-predictor",
-    liveUrl: "https://music-ai.example.com",
     color: "text-purple-500"
   },
   {
-    title: "React Input Display App",
-    description: "Modern React application demonstrating advanced form handling, real-time validation, and dynamic UI updates. Features responsive design and accessibility best practices.",
-    techStack: ["React", "TypeScript", "Tailwind CSS", "React Hook Form", "Zod"],
+    title: "Portfolio Website in React",
+    description: "Personal portfolio built with React and TypeScript, featuring a modern UI, responsive design, and smooth animations. Showcases projects, skills, and contact information.",
+    techStack: ["React", "TypeScript", "Tailwind CSS", "Framer Motion"],
     icon: Monitor,
-    githubUrl: "https://github.com/berathsaran/react-input-app",
-    liveUrl: "https://input-demo.example.com",
+    githubUrl: "https://github.com/berathsaran/portfolio-react",
     color: "text-blue-600"
   }
 ]
@@ -117,15 +113,6 @@ export function ProjectsSection() {
                       asChild
                       className="bg-gradient-primary hover:opacity-90 hover:scale-105 transition-all duration-300"
                     >
-                      <a 
-                        href={project.liveUrl} 
-                        target="_blank" 
-                        rel="noopener noreferrer"
-                        className="flex items-center space-x-2"
-                      >
-                        <ExternalLink className="h-4 w-4" />
-                        <span>Live Demo</span>
-                      </a>
                     </Button>
                   </div>
                 </CardContent>

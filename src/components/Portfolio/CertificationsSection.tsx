@@ -4,21 +4,21 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card"
 const certifications = [
   {
     title: "AWS Associate-Level Training",
-    issuer: "Amazon Web Services",
+    issuer: "NKCloud Technologies (",
     icon: Cloud,
     description: "Comprehensive training in AWS cloud services including EC2, S3, Lambda, and VPC configuration",
     color: "text-orange-500"
   },
   {
     title: "MongoDB for Developers",
-    issuer: "MongoDB University",
+    issuer: "MongoDB",
     icon: Database,
     description: "Advanced database design, query optimization, and application development with MongoDB",
     color: "text-green-600"
   },
   {
     title: "Java Programming",
-    issuer: "Oracle",
+    issuer: "Infoysys Springboard",
     icon: Code,
     description: "Object-oriented programming fundamentals, data structures, and enterprise Java development",
     color: "text-red-500"

@@ -10,11 +10,11 @@ export function AboutSection() {
     {
       icon: Code,
       title: "Frontend + Cloud",
-      subtitle: "React, AWS, Azure"
+      subtitle: "React, AWS"
     },
     {
       icon: Briefcase,
-      title: "8+ Projects Built",
+      title: "4+ Projects Built",
       subtitle: "Web apps & ML models"
     }
   ]
@@ -32,10 +32,12 @@ export function AboutSection() {
           <div className="flex justify-center lg:justify-start">
             <div className="relative">
               <div className="w-80 h-80 rounded-2xl bg-gradient-primary p-1 shadow-elegant">
-                <div className="w-full h-full rounded-2xl bg-background flex items-center justify-center">
-                  <span className="text-6xl font-bold bg-gradient-primary bg-clip-text text-transparent font-heading">
-                    BG
-                  </span>
+                <div className="w-full h-full rounded-2xl bg-background flex items-center justify-center overflow-hidden">
+                  <img
+                    src="/profile.jpg" // Make sure this image is in your public folder
+                    alt="Berathsaran G P"
+                    className="w-full h-full object-cover rounded-2xl"
+                  />
                 </div>
               </div>
               {/* Floating decoration */}
