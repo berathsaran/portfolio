@@ -62,6 +62,20 @@ export function HeroSection() {
           >
             <a href="#projects">View Projects</a>
           </Button>
+          <Button
+            variant="outline"
+            size="lg"
+            asChild
+            className="border-blue-600 text-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 px-8 py-3 text-lg font-semibold hover:scale-105"
+          >
+            <a
+              href="/berath_resume (6).pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              View Resume
+            </a>
+          </Button>
         </div>
 
         <div className="flex items-center justify-center gap-6 pt-8">
