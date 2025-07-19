@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import { useTheme } from '@/components/ThemeProvider'
 
 interface Particle {
@@ -9,15 +9,15 @@ interface Particle {
   speedX: number
   speedY: number
   opacity: number
-  direction: number
 }
 
 export function FloatingParticles() {
   const { theme } = useTheme()
   const [particles, setParticles] = useState<Particle[]>([])
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 })
+  const animationRef = useRef<number>()
 
-  // Initialize particles
+  // Initialize particle dimensions
   useEffect(() => {
     const updateDimensions = () => {
       setDimensions({
@@ -32,6 +32,7 @@ export function FloatingParticles() {
     return () => window.removeEventListener('resize', updateDimensions)
   }, [])
 
+  // Create particles based on dimensions
   useEffect(() => {
     if (dimensions.width === 0) return
 
@@ -45,8 +46,7 @@ export function FloatingParticles() {
       size: 2 + Math.random() * 2, // 2-4px
       speedX: (Math.random() - 0.5) * 0.5, // Slow speed
       speedY: (Math.random() - 0.5) * 0.5,
-      opacity: 0.1 + Math.random() * 0.1, // 0.1-0.2 opacity
-      direction: Math.random() * Math.PI * 2
+      opacity: 0.12 + Math.random() * 0.13 // 0.1-0.2 opacity
     }))
 
     setParticles(newParticles)
@@ -56,44 +56,37 @@ export function FloatingParticles() {
   useEffect(() => {
     if (particles.length === 0) return
 
-    const animateParticles = () => {
-      setParticles(prevParticles => 
-        prevParticles.map(particle => {
-          let newX = particle.x + particle.speedX
-          let newY = particle.y + particle.speedY
-          let newSpeedX = particle.speedX
-          let newSpeedY = particle.speedY
+    const animate = () => {
+      setParticles(prev =>
+        prev.map(p => {
+          let newX = p.x + p.speedX
+          let newY = p.y + p.speedY
+          let newSpeedX = p.speedX
+          let newSpeedY = p.speedY
 
           // Bounce off edges
           if (newX <= 0 || newX >= dimensions.width) {
-            newSpeedX = -particle.speedX
+            newSpeedX = -p.speedX
             newX = Math.max(0, Math.min(dimensions.width, newX))
           }
           if (newY <= 0 || newY >= dimensions.height) {
-            newSpeedY = -particle.speedY
+            newSpeedY = -p.speedY
             newY = Math.max(0, Math.min(dimensions.height, newY))
           }
 
-          // Subtle opacity animation
-          const time = Date.now() * 0.001
-          const baseOpacity = 0.1 + Math.random() * 0.1
-          const opacityVariation = Math.sin(time + particle.id) * 0.05
-          const newOpacity = Math.max(0.05, Math.min(0.25, baseOpacity + opacityVariation))
-
           return {
-            ...particle,
+            ...p,
             x: newX,
             y: newY,
             speedX: newSpeedX,
-            speedY: newSpeedY,
-            opacity: newOpacity
+            speedY: newSpeedY
           }
         })
       )
+      animationRef.current = requestAnimationFrame(animate)
     }
-
-    const interval = setInterval(animateParticles, 50) // 20fps for smooth but not intensive animation
-    return () => clearInterval(interval)
+    animationRef.current = requestAnimationFrame(animate)
+    return () => animationRef.current && cancelAnimationFrame(animationRef.current)
   }, [particles.length, dimensions])
 
   if (particles.length === 0) return null
@@ -112,28 +105,12 @@ export function FloatingParticles() {
             cx={particle.x}
             cy={particle.y}
             r={particle.size}
-            className={theme === 'dark' ? 'fill-primary-glow' : 'fill-primary'}
+            fill={theme === 'dark' ? 'hsl(198,100%,45%)' : 'hsl(198,100%,35%)'}
             style={{
               opacity: particle.opacity,
-              filter: theme === 'dark' 
-                ? 'drop-shadow(0 0 2px hsl(var(--primary-glow) / 0.3))' 
-                : 'none'
+              transition: 'opacity 0.5s'
             }}
-          >
-            {/* Gentle pulsing animation */}
-            <animate
-              attributeName="r"
-              values={`${particle.size};${particle.size * 1.2};${particle.size}`}
-              dur={`${3 + Math.random() * 2}s`}
-              repeatCount="indefinite"
-            />
-            <animate
-              attributeName="opacity"
-              values={`${particle.opacity};${particle.opacity * 0.5};${particle.opacity}`}
-              dur={`${4 + Math.random() * 3}s`}
-              repeatCount="indefinite"
-            />
-          </circle>
+          />
         ))}
       </svg>
     </div>
