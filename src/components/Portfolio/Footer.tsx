@@ -59,9 +59,7 @@ export function Footer() {
           {/* Copyright */}
           <div className="pt-6 border-t border-border/30">
             <p className="text-sm text-muted-foreground flex items-center justify-center space-x-1">
-              <span>© {currentYear} Berathsaran G P. Made with</span>
-              <Heart className="h-4 w-4 text-red-500 fill-current" />
-              <span>and lots of coffee.</span>
+              <span>© {currentYear} Berathsaran G P. All rights reserved.</span>
             </p>
           </div>
         </div>
